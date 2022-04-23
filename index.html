@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rock Paper Scissors</title>
+    <script>
+        function computerPlay(){
+            const rando = Math.floor(Math.random()*3)+1;
+            switch (rando){
+                case 1:
+                    return "Rock"
+                case 2:
+                    return "Paper"
+                case 3:
+                    return "Scissors"
+            }
+        }
+
+        function playRound(playerChoice){
+            const computerChoice = computerPlay().toLowerCase()
+            const choice = playerChoice.toLowerCase()
+            console.log("Computers choice is: "+computerChoice)
+            if(choice === "rock" && computerChoice === "paper"){
+                return -1
+            }else if(choice === "rock" && computerChoice === "scissors"){
+                return 1 
+            }else if( choice === "paper" && computerChoice === "rock"){
+                return 1
+            }else if(choice === "paper" && computerChoice === "scissors"){
+                return -1
+            }else if(choice === "scissors" && computerChoice === "rock"){
+                return -1 
+            }else if(choice === "scissors" && computerChoice === "paper"){
+                return 1
+            }else if((choice === "rock" && computerChoice === "rock") || (choice === "paper" && computerChoice === "paper") || (choice === "scissors" && computerChoice === "scissors")){
+                return 0
+            }
+        }
+
+        function game(){
+            let pScore = 0
+            let cScore = 0
+
+            for(let i = 0; i < 5;i++){
+                let choice = window.prompt("Rock, Paper or Scissiors?")
+                let winner = playRound(choice)
+                if (winner === 1){
+                    console.log("Congratulations you've won this round")
+                    pScore++
+                }else if(winner === -1){
+                    console.log("You've lost this round")
+                    cScore++
+                }else{
+                    console.log("It's a draw")
+                }
+            }
+            console.log("Scoreboard:\nYour Score: "+pScore+"\nComputer's Score: "+cScore)
+            if(pScore > cScore){
+                return "Congratulations you've won the game"
+            }else if (cScore > pScore){
+                return "You've lost the game"
+            }else{
+                return "It's a draw"
+            }
+        }
+                
+            
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
