@@ -1,74 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Rock Paper Scissors</title>
-    <script>
-        function computerPlay(){
-            const rando = Math.floor(Math.random()*3)+1;
-            switch (rando){
-                case 1:
-                    return "Rock"
-                case 2:
-                    return "Paper"
-                case 3:
-                    return "Scissors"
-            }
-        }
-
-        function playRound(playerChoice){
-            const computerChoice = computerPlay().toLowerCase()
-            const choice = playerChoice.toLowerCase()
-            console.log("Computers choice is: "+computerChoice)
-            if(choice === "rock" && computerChoice === "paper"){
-                return -1
-            }else if(choice === "rock" && computerChoice === "scissors"){
-                return 1 
-            }else if( choice === "paper" && computerChoice === "rock"){
-                return 1
-            }else if(choice === "paper" && computerChoice === "scissors"){
-                return -1
-            }else if(choice === "scissors" && computerChoice === "rock"){
-                return -1 
-            }else if(choice === "scissors" && computerChoice === "paper"){
-                return 1
-            }else if((choice === "rock" && computerChoice === "rock") || (choice === "paper" && computerChoice === "paper") || (choice === "scissors" && computerChoice === "scissors")){
-                return 0
-            }
-        }
-
-        function game(){
-            let pScore = 0
-            let cScore = 0
-
-            for(let i = 0; i < 5;i++){
-                let choice = window.prompt("Rock, Paper or Scissiors?")
-                let winner = playRound(choice)
-                if (winner === 1){
-                    console.log("Congratulations you've won this round")
-                    pScore++
-                }else if(winner === -1){
-                    console.log("You've lost this round")
-                    cScore++
-                }else{
-                    console.log("It's a draw")
-                }
-            }
-            console.log("Scoreboard:\nYour Score: "+pScore+"\nComputer's Score: "+cScore)
-            if(pScore > cScore){
-                return "Congratulations you've won the game"
-            }else if (cScore > pScore){
-                return "You've lost the game"
-            }else{
-                return "It's a draw"
-            }
-        }
-                
-            
-
-        
-    </script>
+    <script src="./script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
-<body>
-    
+
+<body
+    style="background-image:url(https://thumbs.dreamstime.com/z/kids-game-rock-paper-scissors-pattern-white-background-134992609.jpg);">
+    <div style="margin-top: 300px;margin-left: 150px;">
+        <div class="container mt-5">
+            <div class="row ">
+                <div class="col">
+                    <button type="button" class="rock btn btn-primary btn-lg">Rock</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="paper btn btn-primary btn-lg">Paper</button>
+                </div>
+                <div class="col">
+                    <button type="button" class="scissors btn btn-primary btn-lg">Scissors</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <div class="container"></div>
 </body>
+
 </html>
